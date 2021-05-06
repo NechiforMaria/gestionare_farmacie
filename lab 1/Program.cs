@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 
+
+
 namespace gestionarea_farmaciei
 {
     class Program
@@ -27,7 +29,9 @@ namespace gestionarea_farmaciei
                 int nrCapsule = Convert.ToInt32(Console.ReadLine());
                 Console.Write($"Introduceti valabilitatea medicamentului(zz.ll.aaaa) ");
                 string valabilitate = Console.ReadLine();
-                Medicament medicamentCitit = new Medicament(nume, nrCapsule, valabilitate);
+                Console.Write($"Introduceti afectiunea pentru care e bun medicamentul ");
+                string afectiune = Console.ReadLine();
+                Medicament medicamentCitit = new Medicament(nume, nrCapsule, valabilitate, afectiune);
                 medicamente[i] = medicamentCitit;
 
             }
@@ -37,16 +41,24 @@ namespace gestionarea_farmaciei
             for (int i = 0; i < nrMedicamente; i++)
             {
                 Console.WriteLine(medicamente[i].ConversieLaSir());
-                
-               
             }
+
+            Console.Write($"Introduceti afectiunea pentru afectiunea pe care o cautati ");
+            string cautarea = Console.ReadLine();
+           
+            
+            for(int i=0;i<nrMedicamente;i++)
+            {
+                if (cautarea == medicamente[i].Afectiune)
+                    Console.WriteLine($"Am gasit medicamentul: {medicamente[i].Nume}");
+            }
+                
+            
+
 
             Console.ReadKey();
         }
     }
-
-
-       
-        
+    
     }
 
