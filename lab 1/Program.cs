@@ -117,24 +117,7 @@ namespace gestionarea_farmaciei
             }
         }
 
-        public static void Cautare(Medicament m)
-        {
-
-            int gasit = 0;
-            for (int i = 0; i < medicamente.Count; i++)
-            {
-                Medicament temp = (Medicament)medicamente[i];
-                if (cautarea == temp.Afectiune)
-                {
-                    Console.WriteLine($"Am gasit medicamentul: {temp.Nume}");
-                    gasit = 1;
-                }
-            }
-            if (gasit != 1)
-            {
-                Console.WriteLine("Nu sunt medicamente cu aceasta afectiune");
-            }
-        }
+        
     }
     
     }
