@@ -26,8 +26,10 @@ namespace gestionarea_farmaciei
             {
                 Console.Clear();
                 Console.WriteLine("A. Afisare medicament");
-                Console.WriteLine("C. Creare si adaugare medicament");
                 Console.WriteLine("B. Compara doua entitati");
+                Console.WriteLine("C. Creare si adaugare medicament");
+                Console.WriteLine("D. Modificare medicament");
+                Console.WriteLine("E. Cauta un medicament dupa nume");
                 Console.WriteLine("X. Inchidere program");
                 Console.WriteLine("Alegeti o optiune");
                 op = Char.ToUpper(Char.Parse(Console.ReadLine()));
@@ -48,6 +50,21 @@ namespace gestionarea_farmaciei
                     case 'B':
                         Console.WriteLine($"Introduceti afectiunea pentru afectiunea pe care o cautati ");
                         Comparare();
+                        break;
+                    case 'D':
+                        Console.WriteLine("Introduceti denumirea medicamentului pe care doriti sa il modificati: ");
+                        string modifi = Console.ReadLine();
+                        medicamente = Modificare(medicamente, modifi, adminMedicamente);
+                        break;
+                    case 'E':
+                        Console.WriteLine("Cauta un medicament dupa nume: ");
+                        string nume = Console.ReadLine();
+                        Medicament cautare = Cautare(nume);
+                        if (cautare != null)
+                            Console.WriteLine($"Afisare medicament: \n {cautare.ConversieLaSir()}");
+                        else
+                            Console.WriteLine("Medicamentul nu exista");
+
                         break;
                     case 'X':
                         break;
@@ -115,6 +132,48 @@ namespace gestionarea_farmaciei
             {
                 Console.WriteLine("Nu sunt medicamente cu aceasta afectiune");
             }
+        }
+
+        public static Medicament Cautare(string nume)
+        {
+
+            Medicament temporar = null;
+            foreach (Medicament m in medicamente)
+            {
+               if(nume== m.Nume)
+                { temporar = m; }
+
+            }
+            if(temporar != null)
+            {
+                return temporar;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+
+        public static ArrayList Modificare(ArrayList medicamente, string modificare, IStocareDate adminMedicamente)
+        {
+            for(int i=0; i<medicamente.Count;i++)
+            {
+                Medicament temporar = (Medicament)medicamente[i];
+                if(modificare == temporar.Nume)
+                {
+                    Console.WriteLine("Introduceti datele: ");
+                    string medicament = Console.ReadLine();
+                    string LinieDeModificat = temporar.ConversieLaSir_pentruFisier();
+                    adminMedicamente.ModificareMadicament(LinieDeModificat, medicament, medicamente);
+
+                    Medicament m = new Medicament(medicament);
+                    medicamente.RemoveAt(i);
+                    medicamente.Insert(i, m);
+                    break;
+                }
+            }
+            return medicamente;
         }
 
         

@@ -10,5 +10,6 @@ namespace lab_1
     {
         void AddMedicament(Medicament m);
         ArrayList GetMedicament();
+        void ModificareMadicament(string LinieDeModificat, string LiniaModificata, ArrayList medicamente);
     }
 }

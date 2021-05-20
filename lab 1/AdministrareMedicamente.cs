@@ -41,5 +41,43 @@ namespace lab_1
             return medicamente;
         }
 
+        public void ModificareMadicament(string LinieDeModificat, string LiniaModificata, ArrayList medicamente)
+        {
+            
+
+            ArrayList medicamentenoi = new ArrayList();
+            string[] LiniiCitite = new string[medicamente.Count];
+            //Console.WriteLine(medicamente.Count);
+            int i = 0;
+            using (StreamReader citire=  new StreamReader(NumeFisier))
+            {
+                string linia;
+
+                while((linia=citire.ReadLine())!= null)
+                    {
+                    Medicament medicamentDinFisier = new Medicament(linia);
+                    medicamentenoi.Add(medicamentDinFisier);
+                    LiniiCitite[i] = linia;
+                    i++;
+                }
+            }
+            i = 0;
+            using (StreamWriter scriere= new StreamWriter(NumeFisier))
+            {
+                string linie = null;
+                while (i< medicamente.Count && (linie=LiniiCitite[i])!= null)
+                {
+                    if(String.Compare(linie, LinieDeModificat) ==0)
+                    {
+                        scriere.WriteLine(LinieDeModificat);
+                        i++;
+                        continue;
+                    }
+                    scriere.WriteLine(linie);
+                    i++;
+                }
+            }
+        }
+
     }
 }
