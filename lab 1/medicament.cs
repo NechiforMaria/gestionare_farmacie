@@ -11,6 +11,20 @@ namespace gestionarea_farmaciei
         public int Nr_capsule { get; set; }
         public string Valabilitate { get; set; }
         public string Afectiune { get; set; }
+       
+        enum Comprimate
+        {
+            tablete,
+            comprimat
+
+        }
+
+        enum Prescriptie
+        {
+            reteta,
+            farareteta
+        }
+       
         //2.constructor fara parametri
         public Medicament()
         {

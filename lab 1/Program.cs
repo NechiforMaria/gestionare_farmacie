@@ -1,8 +1,7 @@
 ﻿using lab_1;
 using System;
 using System.Collections;
-
-
+using System.Collections.Generic;
 
 namespace gestionarea_farmaciei
 {
@@ -30,6 +29,7 @@ namespace gestionarea_farmaciei
                 Console.WriteLine("C. Creare si adaugare medicament");
                 Console.WriteLine("D. Modificare medicament");
                 Console.WriteLine("E. Cauta un medicament dupa nume");
+                Console.WriteLine("F. Adauga si afiseaza in lista generica");
                 Console.WriteLine("X. Inchidere program");
                 Console.WriteLine("Alegeti o optiune");
                 op = Char.ToUpper(Char.Parse(Console.ReadLine()));
@@ -64,7 +64,18 @@ namespace gestionarea_farmaciei
                             Console.WriteLine($"Afisare medicament: \n {cautare.ConversieLaSir()}");
                         else
                             Console.WriteLine("Medicamentul nu exista");
+                        break;
+                    case 'F':
+                        List<Medicament> medicamentele = new List<Medicament>();
+                        // Medicament m=CitireMedicament();
+                        string medicament = Console.ReadLine();
 
+                        Medicament m = new Medicament(medicament);
+                        medicamentele.Add(m);
+                        foreach(Medicament med in medicamentele)
+                        {
+                            Console.WriteLine(med.ConversieLaSir());
+                       }
                         break;
                     case 'X':
                         break;
