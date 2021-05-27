@@ -5,13 +5,14 @@ using System.Text.RegularExpressions;
 
 namespace gestionarea_farmaciei
 {
+
     public class Medicament
     {
         public string Nume { get; set; }
         public int Nr_capsule { get; set; }
         public string Valabilitate { get; set; }
         public string Afectiune { get; set; }
-       
+       //lab 4 campuri de tip enum
         enum Comprimate
         {
             tablete,
@@ -33,7 +34,7 @@ namespace gestionarea_farmaciei
             Valabilitate = string.Empty;
             Afectiune = string.Empty;
         }
-        //2.constructor cu parametri
+        //Lab2. 1.constructor cu parametri 
         public Medicament(string Informatii)
         {
             string[] informatii = Informatii.Split(' ');
@@ -43,7 +44,7 @@ namespace gestionarea_farmaciei
             Afectiune = informatii[3];
         }
 
-        //2.Conversie la sir 
+        //Lab2. 2.Conversie la sir 
         public string ConversieLaSir()
         {
             return $"Medicamentul {Nume} are {Nr_capsule} capsule si expira la data de {Valabilitate}. Este pentru afectiunea: {Afectiune}";

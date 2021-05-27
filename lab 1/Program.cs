@@ -48,7 +48,7 @@ namespace gestionarea_farmaciei
                         adminMedicamente.AddMedicament(medicamentCitit);
                         break;
                     case 'B':
-                        Console.WriteLine($"Introduceti afectiunea pentru afectiunea pe care o cautati ");
+                        //Console.WriteLine($"Introduceti afectiunea pentru afectiunea pe care o cautati ");
                         Comparare();
                         break;
                     case 'D':
@@ -66,8 +66,8 @@ namespace gestionarea_farmaciei
                             Console.WriteLine("Medicamentul nu exista");
                         break;
                     case 'F':
+                        //lab4 2.Liste generice
                         List<Medicament> medicamentele = new List<Medicament>();
-                        // Medicament m=CitireMedicament();
                         string medicament = Console.ReadLine();
 
                         Medicament m = new Medicament(medicament);
@@ -125,26 +125,28 @@ namespace gestionarea_farmaciei
             return m;
         }
 
+        //lab2. 3.Comparare
         public static void Comparare()
         {
 
-            string cautarea = Console.ReadLine();
-            int gasit = 0;
+            int min = 99;
+            int k=0;
             for (int i = 0; i < medicamente.Count; i++)
             {
                 Medicament temp = (Medicament) medicamente[i];
-                if (cautarea == temp.Afectiune)
+                if (temp.Nr_capsule<min)
                 {
-                    Console.WriteLine($"Am gasit medicamentul: {temp.Nume}");
-                    gasit = 1;
+                    min = temp.Nr_capsule;
+                    k = i+1;
+                   
                 }
             }
-            if(gasit !=1)
-            {
-                Console.WriteLine("Nu sunt medicamente cu aceasta afectiune");
-            }
+            
+                Console.WriteLine($"Numarul minim de capsule este: {min}, al medicamentului {k}");
+
         }
 
+        //lab3 2.Cautare entitate
         public static Medicament Cautare(string nume)
         {
 
@@ -166,6 +168,7 @@ namespace gestionarea_farmaciei
             
         }
 
+        //lab3 2.Modificare entitate
         public static ArrayList Modificare(ArrayList medicamente, string modificare, IStocareDate adminMedicamente)
         {
             for(int i=0; i<medicamente.Count;i++)

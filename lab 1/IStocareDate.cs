@@ -6,6 +6,7 @@ using System.Text;
 
 namespace lab_1
 {
+    //lab3 1.Stocare in fisier de date
     public interface IStocareDate
     {
         void AddMedicament(Medicament m);
