@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace gestionarea_farmaciei
 {
-
+    
     public class Medicament
     {
         public string Nume { get; set; }
@@ -26,7 +26,7 @@ namespace gestionarea_farmaciei
             farareteta
         }
        
-        //2.constructor fara parametri
+        //b2.constructor fara parametri
         public Medicament()
         {
             Nume = string.Empty;
@@ -44,10 +44,23 @@ namespace gestionarea_farmaciei
             Afectiune = informatii[3];
         }
 
+        public Medicament(string nume, int nrcapsule, string dataex, string afectiune)
+        {
+            this.Nume = nume;
+            this.Nr_capsule = nrcapsule;
+            this.Valabilitate = dataex;
+            this.Afectiune = afectiune;
+        }
+
         //Lab2. 2.Conversie la sir 
         public string ConversieLaSir()
         {
             return $"Medicamentul {Nume} are {Nr_capsule} capsule si expira la data de {Valabilitate}. Este pentru afectiunea: {Afectiune}";
+        }
+
+        public string ToString()
+        {
+            return $"Nume:{Nume} {Nr_capsule}capsule, valabilitate: {Valabilitate} folosit pentru: {Afectiune}";
         }
 
         public string ConversieLaSir_pentruFisier()

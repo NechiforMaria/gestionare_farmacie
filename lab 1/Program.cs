@@ -10,7 +10,7 @@ namespace gestionarea_farmaciei
         public static ArrayList medicamente;
 
 
-        private const int NR_MINIM_MEDICAMENTE = 0;
+        //private const int NR_MINIM_MEDICAMENTE = 0;
         static void Main(string[] args)
         {
             
@@ -18,7 +18,7 @@ namespace gestionarea_farmaciei
             IStocareDate adminMedicamente = Stocare.AdminStocare();
 
             medicamente = adminMedicamente.GetMedicament();
-            int NrMedicamente = medicamente.Count;
+           // int NrMedicamente = medicamente.Count;
 
             char op;
             do
@@ -48,7 +48,6 @@ namespace gestionarea_farmaciei
                         adminMedicamente.AddMedicament(medicamentCitit);
                         break;
                     case 'B':
-                        //Console.WriteLine($"Introduceti afectiunea pentru afectiunea pe care o cautati ");
                         Comparare();
                         break;
                     case 'D':
@@ -106,6 +105,8 @@ namespace gestionarea_farmaciei
 
             Console.WriteLine("\nInformatiile despre medicamente sunt:");
 
+
+            //Lab2 2.Conversielasir
             for (int i = 0; i < nrMedicamente; i++)
             {
                 Console.WriteLine(medicamente[i].ConversieLaSir());
@@ -114,6 +115,7 @@ namespace gestionarea_farmaciei
 
             Console.ReadKey();
         }
+
 
         public static Medicament CitireMedicament()
         {
