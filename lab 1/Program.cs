@@ -43,6 +43,7 @@ namespace gestionarea_farmaciei
                         }
                         break;
                     case 'C':
+                        
                         Medicament medicamentCitit = CitireMedicament();
                         medicamente.Add(medicamentCitit);
                         adminMedicamente.AddMedicament(medicamentCitit);
@@ -119,8 +120,16 @@ namespace gestionarea_farmaciei
 
         public static Medicament CitireMedicament()
         {
-            Console.WriteLine("Introduceti datele medicamentului ");
-            string medicament = Console.ReadLine();
+            string[] verificare;
+            string medicament;
+            do
+            {
+                Console.WriteLine("Introduceti numele, numarul de capsule, data de expirare si afectiunea pentru care este bun medicamentul separate prin spatiu");
+
+                medicament = Console.ReadLine();
+                verificare = medicament.Split(' ');
+            } while (verificare.Length < 4);
+
 
             Medicament m = new Medicament(medicament);
 

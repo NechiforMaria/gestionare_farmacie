@@ -58,9 +58,9 @@ namespace gestionarea_farmaciei
             return $"Medicamentul {Nume} are {Nr_capsule} capsule si expira la data de {Valabilitate}. Este pentru afectiunea: {Afectiune}";
         }
 
-        public string ToString()
+        public override string  ToString()
         {
-            return $"Nume:{Nume} {Nr_capsule}capsule, valabilitate: {Valabilitate} folosit pentru: {Afectiune}";
+            return $"{Nume}, {Nr_capsule}, {Valabilitate}, {Afectiune}";
         }
 
         public string ConversieLaSir_pentruFisier()

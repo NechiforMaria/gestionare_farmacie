@@ -133,7 +133,7 @@ namespace Interfata
             this.afisare.ItemHeight = 20;
             this.afisare.Location = new System.Drawing.Point(376, 33);
             this.afisare.Name = "afisare";
-            this.afisare.Size = new System.Drawing.Size(380, 184);
+            this.afisare.Size = new System.Drawing.Size(509, 204);
             this.afisare.TabIndex = 9;
             // 
             // adaugare
@@ -244,7 +244,7 @@ namespace Interfata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 434);
+            this.ClientSize = new System.Drawing.Size(909, 487);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.modificare);
